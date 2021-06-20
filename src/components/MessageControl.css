@@ -1,0 +1,232 @@
+.main-chat
+{
+
+}
+.image-container{
+    background: #eee;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 0 5px;
+  }
+  
+  .attachement-display{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    background: #eee;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .attachment-name{
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 5px;
+  }
+  .remove-attachment{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 5px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .chatTitle
+  {
+    background: cornflowerblue;
+      width: 100%;
+      margin: auto;
+      height: 56px;
+      text-align: inherit;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  
+  
+  .chatbox
+  {
+    height: 75%;
+    width: 100%;
+    margin: auto;
+    background: white;
+    position: relative;
+  }
+  .chat-box ul
+  {
+    position:absolute;
+    background-color: #eee;
+    top: 20%;
+    margin: 0%;
+  }
+  
+  .messageBox
+  {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .messageBox textarea
+  {
+    width: 90%;
+    /* height: 50px; */
+  }
+  .messageBox form
+  {
+    width: 100%;
+    display: flex;
+  }
+  .messageBox input
+  {
+    display: none;
+  }
+  .messageBox button
+  {
+    /* display: none; */
+    height: 50px;
+  }
+  .sendFile
+  {
+  
+  }
+  
+  .chat-box ul li
+  {
+    position: relative;
+    list-style: none;
+    margin: 40px 0px;
+    overflow: scroll;
+  }
+  .chatbox ul 
+  {
+    /* position: relative; */
+    list-style: none;
+    /* margin: 10px 0px; */
+    /* margin-top: 20px; */
+    padding: 0 20px;
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .user-text
+  {
+    /* color: blue; */
+    /* position: absolute; */
+    /* right: 24px; */
+    background: grey;
+    color: white;
+    padding: 4px;
+    border: 2px;
+    border-radius: 19px;
+    max-width: 200px;
+    height: auto;
+    margin-right: 40px;
+    margin-top: 20px;
+    /* margin: 80%; */
+  }
+  .sender-text
+  {
+    /* position: absolute; */
+    left: 24px;
+    /* margin: 1%; */
+    background: #49a3b7;
+    color: white;
+   
+    padding: 4px;
+    border: 2px;
+    border-radius: 19px;
+    max-width: 200px;
+    height: auto;
+    /* margin-right: 32px; */
+    margin-top: 20px;
+    /* transform: translateX(500px); */
+  }
+  
+  .user
+  {
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    list-style: none;
+    margin: .5rem 0rem;
+  }
+  .sender
+  {
+    display: flex;
+    justify-content: start;
+    list-style: none;
+    margin: .5rem 0rem;
+  
+  }
+  
+  #root > div > div > div.messageBox > form > label {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* width: 36px; */
+    padding: 0 10px;
+  }
+  
+  .chat-image
+  {
+    width: 200px;
+  }
+  .chat-image img
+  {
+    width: 100%;
+  }
+  
+  
+  .file
+  {
+    width: 50%;
+    margin: auto;
+    /* background-color: blue; */
+    background: #49a3b7;
+  }
+  .file p
+  {
+    margin: 0;
+  }
+
+  .attachment
+  {
+    background-color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 3%;
+  }
+  #root > div > div > div > div.messageBox > form > label > svg
+  {
+    margin: auto;
+    font-size: xx-large;
+  }
+  .send
+  {
+    width: 7%;
+    background-color: cornflowerblue;
+  }
+
+  #root > div > div > div > div.chatTitle > div > svg
+  {
+      font-size: x-large;
+  }
+
+  @media screen and (max-width:1000px) {
+   
+    .send{
+        width: 10%;
+    }
+    .attachment{
+        width: 10%;
+    }
+    .messageBox textarea
+  {
+    width: 80%;
+    /* height: 50px; */
+  }
+
+  }

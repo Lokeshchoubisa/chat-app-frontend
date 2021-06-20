@@ -1,13 +1,21 @@
 import React from 'react'
+import "./MessageControl.css"
+import { IoSend,IoImages,IoAttachOutline,IoArrowBack } from "react-icons/io5";
+
 
 export default function MessageControl(props) {
     // console.log("message control is called");
-    const {sendMessage,setMedia,value,setMessage,groupMessages,sorted_key,selectedUser,username,media }=props;
+    const {sendMessage,setMedia,value,setStep,setMessage,groupMessages,sorted_key,selectedUser,username,media }=props;
     const key=sorted_key(username,selectedUser);
     const messages=(groupMessages[key] && groupMessages[key].length >0) ? groupMessages[key]:[];
     return (
         <div style={{height:"100vh"}}>
-        <div className="chatTitle"><h4>{selectedUser}</h4></div>
+        <div className="main-chat" style={{height:"100vh"}}>
+        <div className="chatTitle"><h4>{selectedUser}</h4>
+        <div onClick={()=>{
+            setStep(1)
+        }} style={{margin:"auto 0"}}><IoArrowBack /></div>        
+        </div>
         
         <div className="chatbox">
 
@@ -61,7 +69,7 @@ export default function MessageControl(props) {
         <form onSubmit={(e)=>sendMessage(e)}>
         <textarea autoFocus value={value} onChange={(e)=>setMessage(e.target.value)} placeholder="enter text...!"></textarea>
         {/* <p>how are you</p> */}
-        <label htmlFor="sendFile">file</label>
+        <label className="attachment" htmlFor="sendFile"><IoAttachOutline /></label>
         <input onChange={(e)=>
         {
 
@@ -86,11 +94,12 @@ export default function MessageControl(props) {
         
         }
         } type="file" id="sendFile" />
-        <button type="submit">Send</button>
+        <button className="send" type="submit"><IoSend /></button>
         </form> 
         
          </div>
           
+    </div>
     </div>
     )
 }

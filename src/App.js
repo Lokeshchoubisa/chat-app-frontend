@@ -77,6 +77,18 @@ function App() {
   useEffect(() => {
 
   console.log("useEffect is called ")
+  // setStep(2)
+
+
+  if(localStorage.getItem("username")!==null)
+  { 
+    socket.emit("new_user",localStorage.getItem("username"));
+    setStep(1);
+  }
+
+
+
+
   socket.on("all_user",(users)=>
     {
       // console.log("all_users are called");
@@ -141,6 +153,7 @@ function App() {
   const onCreateUser=()=>
   { 
     console.log(username);
+    localStorage.setItem("username",username);
     socket.emit("new_user",username);
     setStep(pre=>pre+1);
   }
@@ -151,11 +164,9 @@ function App() {
   return (
     <div className="App">
     {
-      step===0 ?<CreateUser value={username} onCreateUser={onCreateUser} onChange={(e)=>setUsername(e.target.value)} />
+      step===0 && localStorage.getItem("username")===null ?<CreateUser value={username} onCreateUser={onCreateUser} onChange={(e)=>setUsername(e.target.value)} />
       :null
     }
-
-
 
     {
       step===1?(
@@ -166,7 +177,7 @@ function App() {
 
 
     {
-      step===2?(<MessageControl media={media} username={username} groupMessages={groupMessages} sorted_key={sorted_key} value={message} setMedia={setMedia}  setMessage={setMessage} sendMessage={sendMessage} selectedUser={selectedUser} />):null
+      step===2?(<MessageControl step={step} setStep={setStep} media={media} username={username} groupMessages={groupMessages} sorted_key={sorted_key} value={message} setMedia={setMedia}  setMessage={setMessage} sendMessage={sendMessage} selectedUser={selectedUser} />):null
     }
 </div> 
   )

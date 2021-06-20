@@ -1,4 +1,5 @@
 import React from 'react'
+import "./CreateUser.css"
 
 export default function CreateUser(props) {
     const {onCreateUser,value,onChange}=props;
@@ -6,14 +7,18 @@ export default function CreateUser(props) {
         
 <header className="app-header">
 
+
+<div className="center-div">
+<div className="main-div">
 <div className="app-name b-500 primaryColor">My chat</div>
 <form >
  
-  <input type="text" value={value} onChange={(e)=>onChange(e)} autoFocus />
+  <input placeholder="enter username" type="text" value={value} onChange={(e)=>onChange(e)} autoFocus />
   <button onClick={()=>onCreateUser()} type="submit">Start chat</button>
 
 </form>
 
+</div>
 {/* <audio src="./Dil_De_Showroom-Parmish_Verma-(JattZone.com).mp3" ></audio> */}
 {/* <figure>
     
@@ -24,7 +29,7 @@ export default function CreateUser(props) {
             <code>audio</code> element.
     </audio>
 </figure> */}
-
+</div>
 
 </header>
     )
