@@ -6,7 +6,7 @@ import CreateUser from './components/CreateUser';
 import MessageControl from './components/MessageControl';
 import OnlineUsers from './components/OnlineUsers';
 
-const socket=io("http://localhost:7000",{reconnection: true,
+const socket=io("https://lokesh-chat-app-backend.herokuapp.com",{reconnection: true,
 reconnectionDelay: 1000,
 reconnectionDelayMax : 5000,
 reconnectionAttempts: 99999});
