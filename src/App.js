@@ -6,7 +6,10 @@ import CreateUser from './components/CreateUser';
 import MessageControl from './components/MessageControl';
 import OnlineUsers from './components/OnlineUsers';
 
-const socket=io("http://localhost:7000");
+const socket=io("http://localhost:7000",{reconnection: true,
+reconnectionDelay: 1000,
+reconnectionDelayMax : 5000,
+reconnectionAttempts: 99999});
 
 
 function App() {
@@ -79,20 +82,26 @@ function App() {
   console.log("useEffect is called ")
   // setStep(2)
 
-
+  // console.log(users)
+  
   if(localStorage.getItem("username")!==null)
   { 
+    setUsername(localStorage.getItem("username"))
     socket.emit("new_user",localStorage.getItem("username"));
     setStep(1);
   }
 
-
-
+  socket.on("reconnect",(at)=>
+  {
+    console.log("reconnection is callled");
+  })
 
   socket.on("all_user",(users)=>
     {
       // console.log("all_users are called");
-      // console.log(users);
+      
+
+      console.log(users);
       setUsers(users);
     })
   socket.on("new_message",(body)=>
@@ -153,7 +162,7 @@ function App() {
   const onCreateUser=()=>
   { 
     console.log(username);
-    localStorage.setItem("username",username);
+    localStorage.setItem("username",username);   //do this for local storage
     socket.emit("new_user",username);
     setStep(pre=>pre+1);
   }
